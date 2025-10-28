@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+env/
+.venv/
+venv/
+ENV/
+.env
+*.egg-info/
+dist/
+build/
+
+# Virtual env
+.venv/
+
+# Local env files
+.env
+
+# Node / frontend
+node_modules/
+build/
+dist/
+
+# Editor
+.vscode/
+.idea/
+.DS_Store
+
+# Docker
+docker-compose.override.yml
+*.log
+
+# Misc
+*.sqlite3
