@@ -17,7 +17,7 @@ class LPProblem(BaseModel):
     maximize: bool = True
 
 class Solution(BaseModel):
-    success: True
+    success: bool
     solution: Optional[list[float]] = None
     optimal_value: Optional[float] = None
     message: str
@@ -71,7 +71,7 @@ def solve_lp(problem: LPProblem):
             A_ub = problem.constraints_matrix,
             b_ub = problem.constraints_limits,
             bounds = problem.bounds,
-            methods = 'highs',
+            method = 'highs',
         )
         if result.success:
             optimal_value = -result.fun if problem.maximize else result.fun
