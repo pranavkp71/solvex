@@ -1,22 +1,35 @@
 from scipy.optimize import linprog
 from fastapi import FastAPI
 from pydantic import BaseModel
+from typing import Optional
 
 app = FastAPI(
     title='Solvex',
     version='0.0.1',
-    description="Your optimizer"
+    description="Solve linear programming problems easily via API"
 )
 
 class LPProblem(BaseModel):
     objective: list[float]
     constraints_matrix: list[list[float]]
     constraints_limits: list[float]
-    bounds: list[tuple]
+    bounds: list[tuple[Optional[float], Optional[float]]]
+    maximize: bool = True
+
+class Solution(BaseModel):
+    success: True
+    solution: Optional[list[float]] = None
+    optimal_value: Optional[float] = None
+    message: str
+    
 
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to SolveX"}
+    return {
+        'service': 'Solvex',
+        'description': "Solve linear programming problems easily via API",
+        'version': '0.0.1'
+    }
 
 @app.get('/health')
 def health():
