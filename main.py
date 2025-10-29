@@ -18,19 +18,36 @@ class LPProblem(BaseModel):
 def read_root():
     return {"message": "Welcome to SolveX"}
 
+@app.get('/health')
+def health():
+    return {'status': 'healthy', 'services': 'Solvex'}
+
 @app.post("/solve/lp")
 def solve_lp(problem: LPProblem):
-    c = [-x for x in problem.objective]
+    try:
+        c = [-x for x in problem.objective]
+        
+        result = linprog(
+            c=c,
+            A_ub=problem.constraints_matrix,
+            b_ub=problem.constraints_limits,
+            bounds=problem.bounds
+        )
+        if result.success:
+            return {
+                "success": True,
+                "solution": [round(x, 4) for x in result.x],
+                "optimal_value": [round(-result.fun, 4)],
+                'message': 'Optimal solution found'
+            }
+        else:
+            return {
+                'success': False,
+                'message': f"Optimization failed: {result.message}"
+            }
     
-    result = linprog(
-        c=c,
-        A_ub=problem.constraints_matrix,
-        b_ub=problem.constraints_limits,
-        bounds=problem.bounds
-    )
-    
-    return {
-        "success": result.success,
-        "solution": result.x.tolist() if result.success else None,
-        "optimal_value": -result.fun if result.success else None
-    }
+    except Exception as e:
+        return {
+            'success': False,
+            'message': f"Error: {str(e)}"
+        }
