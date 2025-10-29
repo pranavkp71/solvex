@@ -26,7 +26,7 @@ class Solution(BaseModel):
 @app.get("/")
 def read_root():
     return {
-        'service': 'Solvex',
+        'title': 'Solvex',
         'description': "Solve linear programming problems easily via API",
         'version': '0.0.1'
     }
@@ -78,7 +78,7 @@ def solve_lp(problem: LPProblem):
             return {
                 "success": True,
                 "solution": [round(x, 6) for x in result.x],
-                "optimal_value": [round(optimal_value, 6)],
+                "optimal_value": round(optimal_value, 6),
                 'message': 'Optimal solution found'
             }
         else:
