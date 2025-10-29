@@ -70,7 +70,7 @@ def solve_lp(problem: LPProblem):
             c = c,
             A_ub = problem.constraints_matrix,
             b_ub = problem.constraints_limits,
-            bounds = problem.bounds
+            bounds = problem.bounds,
             methods = 'highs',
         )
         if result.success:
