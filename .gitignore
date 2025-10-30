@@ -35,3 +35,5 @@ docker-compose.override.yml
 
 # Misc
 *.sqlite3
+
+.coverage
