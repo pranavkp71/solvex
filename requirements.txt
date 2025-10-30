@@ -4,3 +4,4 @@ pydantic==2.12.3
 scipy==1.16.2
 uvicorn==0.38.0
 pytest==8.4.2
+requests==2.32.5
