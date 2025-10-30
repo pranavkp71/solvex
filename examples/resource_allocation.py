@@ -48,7 +48,7 @@ tasks = ["Task 1", "Task 2", "Task 3"]
 cost_matrix = [
     [5, 8, 7],  # Worker 1's efficiency for each task
     [6, 4, 9],  # Worker 2's efficiency for each task
-    [7, 6, 5]   # Worker 3's efficiency for each task
+    [7, 6, 5],  # Worker 3's efficiency for each task
 ]
 
 print("=" * 60)
@@ -99,7 +99,7 @@ problem = {
     "objective": objective,
     "constraints_matrix": constraints_matrix,
     "constraints_limits": constraints_limits,
-    "bounds": bounds
+    "bounds": bounds,
 }
 
 print("\n" + "-" * 60)
@@ -110,27 +110,27 @@ try:
     response = requests.post(API_URL, json=problem)
     response.raise_for_status()
     result = response.json()
-    
+
     if result["success"]:
         print("\n✓ OPTIMAL ASSIGNMENT FOUND!\n")
-        
+
         solution = result["solution"]
         total_hours = result["optimal_value"]
-        
+
         print("Assignment Plan:")
         for i in range(n):
             for j in range(n):
                 idx = i * n + j
                 if solution[idx] > 0.5:  # If assigned (>0.5 for LP relaxation)
                     print(f"  {workers[i]} → {tasks[j]} ({cost_matrix[i][j]} hours)")
-        
+
         print(f"\n{'─' * 60}")
         print(f"Total Time: {total_hours:.2f} hours")
         print(f"{'─' * 60}")
-        
+
     else:
         print(f"\n✗ Optimization failed: {result.get('message', 'Unknown error')}")
-        
+
 except requests.exceptions.ConnectionError:
     print("\n✗ ERROR: Cannot connect to Solvex API")
     print("Make sure the server is running: uvicorn main:app --reload")

@@ -4,10 +4,11 @@ from pydantic import BaseModel
 from typing import Optional
 
 app = FastAPI(
-    title='Solvex',
-    version='0.0.1',
-    description="Solve linear programming problems easily via API"
+    title="Solvex",
+    version="0.0.1",
+    description="Solve linear programming problems easily via API",
 )
+
 
 class LPProblem(BaseModel):
     objective: list[float]
@@ -16,24 +17,27 @@ class LPProblem(BaseModel):
     bounds: list[tuple[Optional[float], Optional[float]]]
     maximize: bool = True
 
+
 class Solution(BaseModel):
     success: bool
     solution: Optional[list[float]] = None
     optimal_value: Optional[float] = None
     message: str
-    
+
 
 @app.get("/")
 def read_root():
     return {
-        'title': 'Solvex',
-        'description': "Solve linear programming problems easily via API",
-        'version': '0.0.1'
+        "title": "Solvex",
+        "description": "Solve linear programming problems easily via API",
+        "version": "0.0.1",
     }
 
-@app.get('/health')
+
+@app.get("/health")
 def health():
-    return {'status': 'healthy', 'services': 'Solvex'}
+    return {"status": "healthy", "services": "Solvex"}
+
 
 @app.post("/solve/lp")
 def solve_lp(problem: LPProblem):
@@ -60,18 +64,18 @@ def solve_lp(problem: LPProblem):
             2x_1 + 3x_2 <= 20
             x_1 + 2x_2 <= 10
             x_1, x_2 >= 0
-            
+
 
     """
     try:
         c = [-x for x in problem.objective] if problem.maximize else problem.objective
-        
+
         result = linprog(
-            c = c,
-            A_ub = problem.constraints_matrix,
-            b_ub = problem.constraints_limits,
-            bounds = problem.bounds,
-            method = 'highs',
+            c=c,
+            A_ub=problem.constraints_matrix,
+            b_ub=problem.constraints_limits,
+            bounds=problem.bounds,
+            method="highs",
         )
         if result.success:
             optimal_value = -result.fun if problem.maximize else result.fun
@@ -79,13 +83,13 @@ def solve_lp(problem: LPProblem):
                 "success": True,
                 "solution": [round(x, 6) for x in result.x],
                 "optimal_value": round(optimal_value, 6),
-                'message': 'Optimal solution found'
+                "message": "Optimal solution found",
             }
         else:
             return {
-                'success': False,
-                'message': f"Optimization failed: {result.message}"
+                "success": False,
+                "message": f"Optimization failed: {result.message}",
             }
-    
+
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
