@@ -44,6 +44,7 @@ pip install -r requirements.txt
 
 ### 2. Run the Server
 ```bash
+cd solvex
 uvicorn main:app --reload
 ```
 
@@ -162,10 +163,22 @@ print(f"Maximum value: {result['optimal_value']:.2f}")
 Contributions are always welcome. If you find a bug or want to add a feature:
 
 1. Fork the repo
-2. Create a new branch
-3. Submit a pull request
-
-Please ensure tests (`pytest`) pass before submitting.
+2. Create a new branch for your changes
+3. Make your changes
+4. Format your code using Black:
+   ```bash
+   black .
+   ```
+5. Check for style issues with Flake8:
+   ```bash
+   flake8 .
+   ```
+6. Run tests:
+   ```bash
+   pytest
+   ```
+7. Commit your changes and push to your branch
+8. Sumbit a pull request 
 
 ---
 
