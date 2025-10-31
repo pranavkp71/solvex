@@ -3,6 +3,7 @@
 ![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-green.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
+[![Build](https://img.shields.io/github/actions/workflow/status/pranavkp71/solvex/ci.yml?branch=main)](https://github.com/pranavkp71/solvex/actions)
 
 ⭐ **If you find Solvex useful, give it a star!** ⭐
 
