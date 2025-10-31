@@ -5,7 +5,6 @@
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 [![Build](https://img.shields.io/github/actions/workflow/status/pranavkp71/solvex/ci.yml?branch=main)](https://github.com/pranavkp71/solvex/actions)
 
-⭐ **If you find Solvex useful, give it a star!** ⭐
 
 Solvex is a lightweight REST API that solves Linear Programming problems using SciPy — making optimization accessible to any application, in any language.
 
@@ -197,5 +196,8 @@ Contributions are always welcome. If you find a bug or want to add a feature:
 MIT License — see [LICENSE](LICENSE) file for details.
 
 Free and open source. Use it, modify it, share it
+
+⭐ **If you find Solvex useful, give it a star** ⭐
+
 
 
