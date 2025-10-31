@@ -4,6 +4,7 @@ from solvex.solvers import solve_lp as lp_solver
 
 router = APIRouter(prefix="/solve", tags=["Linear Programming"])
 
+
 @router.post("/lp")
 def solve_lp(problem: LPProblem):
     try:
