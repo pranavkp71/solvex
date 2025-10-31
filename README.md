@@ -197,6 +197,8 @@ MIT License — see [LICENSE](LICENSE) file for details.
 
 Free and open source. Use it, modify it, share it
 
+---
+
 ⭐ **If you find Solvex useful, give it a star** ⭐
 
 
