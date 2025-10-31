@@ -1,0 +1,22 @@
+site_name: Solvex
+site_description: Solve Linear Programming problems via API
+site_url: https://pranavkp71.github.io/solvex
+repo_url: https://github.com/pranavkp71/solvex
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: teal
+    accent: light blue
+plugins:
+  - search
+  - awesome-pages
+  - swagger-ui-tag
+nav:
+  - Home: index.md
+  - Installation: install.md
+  - Usage: usage.md
+  - API Reference: api_reference.md
+  - Get Help:
+      - "Open an issue": https://github.com/pranavkp71/solvex/issues
+      - "Email": mailto:pranavkp170@gmail.com
