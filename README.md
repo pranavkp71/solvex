@@ -182,16 +182,16 @@ Contributions are always welcome. If you find a bug or want to add a feature:
 
 ---
 
-## 💬 Getting Help
+## Getting Help
 
-- 📖 Check the [API Documentation](http://127.0.0.1:8000/docs)
-- 🐛 Found a bug? [Open an issue](https://github.com/pranavkp71/solvex/issues)
-- 💡 Have questions? [Start a discussion](https://github.com/pranavkp71/solvex/discussions)
-- 📧 Email: pranavkp170@gmail.com
+- Check the [API Documentation](http://127.0.0.1:8000/docs)
+- Found a bug? [Open an issue](https://github.com/pranavkp71/solvex/issues)
+- Have questions? [Start a discussion](https://github.com/pranavkp71/solvex/discussions)
+- Email: pranavkp170@gmail.com
 
 ---
 
-## 📜 License
+## License
 
 MIT License — see [LICENSE](LICENSE) file for details.
 
