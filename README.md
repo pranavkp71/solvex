@@ -156,30 +156,6 @@ print(f"Maximum value: {result['optimal_value']:.2f}")
 
 ---
 
-## Contributing
-
-Contributions are always welcome. If you find a bug or want to add a feature:
-
-1. Fork the repo
-2. Create a new branch for your changes
-3. Make your changes
-4. Format your code using check:
-   ```bash
-  uv run ruff check .
-   ```
-5. Check for style issues with ruff:
-   ```bash
-  uv run ruff format .
-   ```
-6. Run tests:
-   ```bash
-  uv run pytest
-   ```
-7. Commit your changes and push to your branch
-8. Submit a pull request 
-
----
-
 ## Getting Help
 
 - Check the [API Documentation](http://127.0.0.1:8000/docs)
