@@ -37,9 +37,7 @@ Solvex is a lightweight REST API that solves Linear Programming problems using S
 ```bash
 git clone https://github.com/pranavkp71/solvex.git
 cd solvex
-python -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
+uv sync
 ```
 
 ### 2. Run the Server
@@ -165,20 +163,20 @@ Contributions are always welcome. If you find a bug or want to add a feature:
 1. Fork the repo
 2. Create a new branch for your changes
 3. Make your changes
-4. Format your code using Black:
+4. Format your code using check:
    ```bash
-   black .
+  uv run ruff check .
    ```
-5. Check for style issues with Flake8:
+5. Check for style issues with ruff:
    ```bash
-   flake8 .
+  uv run ruff format .
    ```
 6. Run tests:
    ```bash
-   pytest
+  uv run pytest
    ```
 7. Commit your changes and push to your branch
-8. Sumbit a pull request 
+8. Submit a pull request 
 
 ---
 
