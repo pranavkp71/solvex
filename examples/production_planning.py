@@ -108,11 +108,11 @@ try:
 
         print(
             f"  Labor: {labor_used:.2f}/{resources['labor_hours']} hours "
-            + f"({(labor_used/resources['labor_hours']*100):.1f}% utilized)"
+            + f"({(labor_used / resources['labor_hours'] * 100):.1f}% utilized)"
         )
         print(
             f"  Material: {material_used:.2f}/{resources['material_kg']} kg "
-            + f"({(material_used/resources['material_kg']*100):.1f}% utilized)"
+            + f"({(material_used / resources['material_kg'] * 100):.1f}% utilized)"
         )
 
         print(f"\n{'─' * 60}")

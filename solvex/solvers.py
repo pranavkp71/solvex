@@ -1,4 +1,5 @@
 from scipy.optimize import linprog
+
 from .models import LPProblem
 
 

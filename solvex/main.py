@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+
 from solvex.routers import lp
 
 app = FastAPI(

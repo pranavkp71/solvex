@@ -52,7 +52,7 @@ print(f"\nBudget: ${BUDGET:,}")
 print("\nAssets:")
 for symbol, data in assets.items():
     print(
-        f"  {symbol:6} ({data['name']:20}) - Expected Return: {data['return']*100:.1f}%"
+        f"  {symbol:6} ({data['name']:20}) - Expected Return: {data['return'] * 100:.1f}%"
     )
 
 # Formulate the optimization problem
@@ -116,7 +116,7 @@ try:
         print(f"\n{'─' * 60}")
         print(f"Total Investment:     ₹{total_investment:,.2f}")
         print(f"Expected Annual Return: ₹{expected_return:,.2f}")
-        print(f"Return Rate:          {(expected_return/BUDGET)*100:.2f}%")
+        print(f"Return Rate:          {(expected_return / BUDGET) * 100:.2f}%")
         print(f"{'─' * 60}")
 
     else:

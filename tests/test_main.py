@@ -1,4 +1,5 @@
 from fastapi.testclient import TestClient
+
 from solvex.main import app
 
 client = TestClient(app)
