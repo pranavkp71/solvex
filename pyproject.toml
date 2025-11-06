@@ -1,9 +1,12 @@
 [project]
 name = "solvex"
-version = "0.1.0"
-description = "Add your description here"
+version = "0.2.0"
+description = "Lightweight optimization toolkit for solving linear programming problems via Python or REST API."
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Pranav K P", email = "pranavkp170@gmail.com" }]
+
 dependencies = [
     "fastapi>=0.121.0",
     "httpx>=0.28.1",
@@ -13,10 +16,22 @@ dependencies = [
     "uvicorn>=0.38.0",
 ]
 
+[project.urls]
+Homepage = "https://github.com/pranavkp71/solvex"
+Repository = "https://github.com/pranavkp71/solvex"
+Issues = "https://github.com/pranavkp71/solvex/issues"
+
+[tool.setuptools.packages.find]
+where = ["solvex"]  
+exclude = ["api", "tests", "examples"]
+
+
 [dependency-groups]
 dev = [
     "pytest>=8.4.2",
     "ruff>=0.14.3",
+    "build>=1.2.1",
+    "twine>=5.0.0",
 ]
 
 [tool.ruff]
@@ -31,4 +46,8 @@ ignore = ["E501"]
 quote-style = "double"
 indent-style = "space"
 skip-magic-trailing-comma = false
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
 

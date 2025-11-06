@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 
+from solvex.linear_solver import solve_lp as lp_solver
 from solvex.models import LPProblem
-from solvex.solvers import solve_lp as lp_solver
 
 router = APIRouter(prefix="/solve", tags=["Linear Programming"])
 

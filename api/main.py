@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from solvex.routers import lp
+from api.routers import lp
 
 app = FastAPI(
     title="Solvex",
