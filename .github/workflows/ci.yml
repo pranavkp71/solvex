@@ -2,9 +2,9 @@ name: CI - Solvex
 
 on:
   push:
-    branches: [ "**" ]
+    branches: ["**"]
   pull_request:
-    branches: [ "**" ]
+    branches: ["**"]
 
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          uv sync
+          uv sync --all-extras --dev
 
       - name: Lint and format check (Ruff)
         run: |
@@ -34,4 +34,8 @@ jobs:
 
       - name: Run tests
         run: |
-          uv run pytest -v
+          uv run pytest -v --maxfail=1 --disable-warnings
+
+      - name: Build package (PyPI verification)
+        run: |
+          uv run python -m build
