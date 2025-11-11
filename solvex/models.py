@@ -11,7 +11,7 @@ class LPProblem(BaseModel):
     maximize: bool = True
 
 
-class Solution(BaseModel):
+class LPSolution(BaseModel):
     success: bool
     solution: Optional[list[float]] = None
     optimal_value: Optional[float] = None
