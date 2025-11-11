@@ -1,6 +1,7 @@
 from fastapi.testclient import TestClient
-from solvex.models import LPSolution
+
 from api.main import app
+from solvex.models import LPSolution
 
 client = TestClient(app)
 
@@ -58,8 +59,6 @@ def test_infeasible_problem():
 
 def test_invalid_payload():
     """Check Pydantic validation for missing fields."""
-    invalid_data = {
-        "objective": [1, 2]
-    }
+    invalid_data = {"objective": [1, 2]}
     response = client.post("/solve/lp", json=invalid_data)
-    assert response.status_code == 422 
+    assert response.status_code == 422
